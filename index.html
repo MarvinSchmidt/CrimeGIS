@@ -1106,11 +1106,10 @@
 	"Sexualdelikt": layer_sexualdelikt,
 	"Verkehrsdelikt": layer_verkehrsdelikt,
 	"Sonstige Verbrechen": layer_sonstiges,
-	"Untersuchungsgebiet": Untersuchungsgebiet,
 	};
 	
 	//add legend
-	var legend = L.control.layers(basemaps, layer, {collapsed: true}).addTo(mymap);
+	var legend = L.control.layers(basemaps, layer, {collapsed: false}).addTo(mymap);
 </script>
 </body>
 </html>
