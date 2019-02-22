@@ -226,7 +226,7 @@
 	
 	var layer_koerperverletzung = L.geoJSON(crimes_Koerperverletzung, {
 		onEachFeature: function (feature, layer){
-			layer.bindPopup('Verbrechen: '+feature.properties.Verbrechen_1+'<br>'+'Strasse: '+feature.properties.Strasse+'<br>'+'Datum: '+feature.properties.Datum_Tat)
+			layer.bindPopup('Verbrechen: '+feature.properties.Verbrechen_1+'<br>'+'Strasse: '+feature.properties.Strasse+'<br>'+'Datum: '+feature.properties.Datum_Tat+'<br>'+'Stadt: '+feature.properties.Stadt+'<br>'+'Postleitzahl: '+feature.properties.PLZ)
 		}
 	}).addTo(mymap);
 	
@@ -693,7 +693,7 @@
 	
 	var layer_einbruch_diebstahl = L.geoJSON(crimes_Einbruch_Diebstahl, {
 		onEachFeature: function (feature, layer){
-			layer.bindPopup('Verbrechen: '+feature.properties.Verbrechen_1+'<br>'+'Strasse: '+feature.properties.Strasse+'<br>'+'Datum: '+feature.properties.Datum_Tat)
+			layer.bindPopup('Verbrechen: '+feature.properties.Verbrechen_1+'<br>'+'Strasse: '+feature.properties.Strasse+'<br>'+'Datum: '+feature.properties.Datum_Tat+'<br>'+'Stadt: '+feature.properties.Stadt+'<br>'+'Postleitzahl: '+feature.properties.PLZ)
 		}
 	}).addTo(mymap);
 	
@@ -718,7 +718,7 @@
 	
 	var layer_drogendelikte = L.geoJSON(crimes_drogendelikte, {
 		onEachFeature: function (feature, layer){
-			layer.bindPopup('Verbrechen: '+feature.properties.Verbrechen_1+'<br>'+'Strasse: '+feature.properties.Strasse+'<br>'+'Datum: '+feature.properties.Datum_Tat)
+			layer.bindPopup('Verbrechen: '+feature.properties.Verbrechen_1+'<br>'+'Strasse: '+feature.properties.Strasse+'<br>'+'Datum: '+feature.properties.Datum_Tat+'<br>'+'Stadt: '+feature.properties.Stadt+'<br>'+'Postleitzahl: '+feature.properties.PLZ)
 		}
 	}).addTo(mymap);
 	
@@ -846,7 +846,7 @@
 	}
 	var layer_sachbeschaedigung = L.geoJSON(crimes_sachbeschaedigung, {
 		onEachFeature: function (feature, layer){
-			layer.bindPopup('Verbrechen: '+feature.properties.Verbrechen_1+'<br>'+'Strasse: '+feature.properties.Strasse+'<br>'+'Datum: '+feature.properties.Datum_Tat)
+			layer.bindPopup('Verbrechen: '+feature.properties.Verbrechen_1+'<br>'+'Strasse: '+feature.properties.Strasse+'<br>'+'Datum: '+feature.properties.Datum_Tat+'<br>'+'Stadt: '+feature.properties.Stadt+'<br>'+'Postleitzahl: '+feature.properties.PLZ)
 		}
 	}).addTo(mymap);
 	
@@ -948,7 +948,7 @@
 	}
 	var layer_sexualdelikt = L.geoJSON(crimes_sexualdelikt, {
 		onEachFeature: function (feature, layer){
-			layer.bindPopup('Verbrechen: '+feature.properties.Verbrechen_1+'<br>'+'Strasse: '+feature.properties.Strasse+'<br>'+'Datum: '+feature.properties.Datum_Tat)
+			layer.bindPopup('Verbrechen: '+feature.properties.Verbrechen_1+'<br>'+'Strasse: '+feature.properties.Strasse+'<br>'+'Datum: '+feature.properties.Datum_Tat+'<br>'+'Stadt: '+feature.properties.Stadt+'<br>'+'Postleitzahl: '+feature.properties.PLZ)
 		}
 	}).addTo(mymap);
 	
@@ -1056,7 +1056,7 @@
 		
 	var layer_verkehrsdelikt = L.geoJSON(crimes_verkehrsdelikt, {
 		onEachFeature: function (feature, layer){
-			layer.bindPopup('Verbrechen: '+feature.properties.Verbrechen_1+'<br>'+'Strasse: '+feature.properties.Strasse+'<br>'+'Datum: '+feature.properties.Datum_Tat)
+			layer.bindPopup('Verbrechen: '+feature.properties.Verbrechen_1+'<br>'+'Strasse: '+feature.properties.Strasse+'<br>'+'Datum: '+feature.properties.Datum_Tat+'<br>'+'Stadt: '+feature.properties.Stadt+'<br>'+'Postleitzahl: '+feature.properties.PLZ)
 		}
 	}).addTo(mymap);
 	
@@ -1087,7 +1087,7 @@
 	
 	var layer_sonstiges = L.geoJSON(crimes_sonstiges, {
 		onEachFeature: function (feature, layer){
-			layer.bindPopup('Verbrechen: '+feature.properties.Verbrechen_1+'<br>'+'Strasse: '+feature.properties.Strasse+'<br>'+'Datum: '+feature.properties.Datum_Tat)
+			layer.bindPopup('Verbrechen: '+feature.properties.Verbrechen_1+'<br>'+'Strasse: '+feature.properties.Strasse+'<br>'+'Datum: '+feature.properties.Datum_Tat+'<br>'+'Stadt: '+feature.properties.Stadt+'<br>'+'Postleitzahl: '+feature.properties.PLZ)
 		}
 	}).addTo(mymap);
 	
@@ -1119,18 +1119,6 @@
 	
 	//add legend
 	var legend = L.control.layers(basemaps, layer, {collapsed: true}).addTo(mymap);
-	
-	// geolocation
-	
-	function onLocationFound(e) {
-		var radius = e.accuracy / 2;
-		L.marker(e.latlng).addTo(mymap)
-			.bindPopup("Sie befinden sich im Umkreis von "+radius+"Metern um diesen Punkt.").openPopup();
-		L.circle(e.latlng, radius).addTo(mymap);
-	}
-	
-	map.on('locationfound', onLocationFound);
-	map.locate({setView: true, watch: true, maxZoom: 2});
 	
 </script>
 </body>
