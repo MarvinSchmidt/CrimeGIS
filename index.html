@@ -1119,6 +1119,19 @@
 	
 	//add legend
 	var legend = L.control.layers(basemaps, layer, {collapsed: true}).addTo(mymap);
+	
+	// geolocation
+	
+	function onLocationFound(e) {
+		var radius = e.accuracy / 2;
+		L.marker(e.latlng).addTo(mymap)
+			.bindPopup("Sie befinden sich im Umkreis von "+radius+"Metern um diesen Punkt.").openPopup();
+		L.circle(e.latlng, radius).addTo(mymap);
+	}
+	
+	map.on('locationfound', onLocationFound);
+	map.locate({setView: true, watch: true, maxZoom: 2});
+	
 </script>
 </body>
 </html>
