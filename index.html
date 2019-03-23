@@ -38,17 +38,13 @@
 <script>
 	// create Leaflet map
 	var mymap = L.map("mapid").setView([48.3926949, 9.1787208]).setZoom(10);
-	
-	// add first basemap
-	var OSM_background = L.tileLayer('https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png').addTo(mymap);
-	
+		
 	//add second basemap
-	var Esri_World = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}.png').addTo(mymap);
+	var OSM_background = L.tileLayer('https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png').addTo(mymap);
 	
 	//list of basemaps
 	var basemaps = {
-		"Open Street Map DE": OSM_background,
-		"Luftbild": Esri_World};
+		"Open Street Map DE": OSM_background};
 	
 	//add scale
 	var scale = L.control.scale({maxWidth: 200, metric: true, imperial: false}).addTo(mymap);
